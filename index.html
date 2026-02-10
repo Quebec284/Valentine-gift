@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine Special</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: black;   /* 👈 black background */
+      color: white;              /* 👈 default text color */
+  font-size: 28px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+#answer {
+  font-size: 28px;
+}
+    }
+    h1 {
+      cursor: pointer;
+      color: red;
+    }
+    #answer {
+      display: none;
+      font-size: 20px;
+      margin-top: 30px;
+      color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  
+  <h1 id="trigger">
+How to hack your Girlfriend's Instagram account this Valentine 💘
+</h1>
+
+
+<div id="answer" style="display:none;">
+  😂 Nice try!
+  <div class="step">Step 1: Don’t hack.</div>
+  <div class="step">Step 2: Trust her.</div>
+  <div class="step">Step 3: Buy chocolate 🍫</div>
+</div>
+
+
+<script>
+  const trigger = document.getElementById("trigger");
+  const answer = document.getElementById("answer");
+
+  const originalText = trigger.innerHTML;
+  const hideText = "Click again to hide 🔽";
+
+  answer.style.overflow = "hidden";
+  answer.style.transition = "max-height 0.6s ease, opacity 0.6s ease";
+  answer.style.maxHeight = "0";
+  answer.style.opacity = "0";
+
+  let isOpen = false;
+
+  trigger.addEventListener("click", function () {
+    if (!isOpen) {
+      answer.style.display = "block";
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      answer.style.opacity = "1";
+      trigger.innerHTML = hideText;
+      isOpen = true;
+    } else {
+      answer.style.maxHeight = "0";
+      answer.style.opacity = "0";
+      trigger.innerHTML = originalText;
+      isOpen = false;
+    }
+  });
+</script>
+
+</body>
+</html>
